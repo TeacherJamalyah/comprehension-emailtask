@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UASA English Year 5 - Parts 3, 6 & 7 Mastery Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        }
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Fredoka', cursive, sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .bounce-btn {
+            transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.15s ease;
+        }
+        .bounce-btn:active {
+            transform: scale(0.93);
+        }
+        .bounce-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .star-glow {
+            filter: drop-shadow(0 0 8px #f59e0b);
+        }
+
+        .card-pop {
+            animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.92); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #0284c7;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col justify-between transition-colors duration-300">
+
+    <header class="sticky top-0 z-40 w-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b-4 border-sky-400 dark:border-sky-600 px-4 py-3 shadow-md">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div onclick="showSection('dashboard')" class="flex items-center gap-3 cursor-pointer group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-2xl shadow-lg border-2 border-white group-hover:rotate-6 transition-transform text-white">
+                    📖
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-base sm:text-xl text-sky-700 dark:text-sky-400 leading-none">UASA Year 5 Mastery</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-bold">Parts 3, 6 & 7 Reading & Writing Portal</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="bg-amber-100 dark:bg-amber-950/80 border-2 border-amber-400 text-amber-800 dark:text-amber-300 px-3.5 py-1.5 rounded-2xl font-black text-sm flex items-center gap-2 shadow-inner">
+                    <i class="fa-solid fa-star text-amber-500 text-lg star-glow"></i>
+                    <span id="star-count">0</span>
+                </div>
+
+                <button onclick="toggleAudio()" id="audio-toggle-btn" class="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-700 dark:text-slate-200 border-2 border-slate-300 flex items-center justify-center text-base bounce-btn shadow" title="Toggle Speech">
+                    <i id="audio-icon" class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-700 dark:text-slate-200 border-2 border-slate-300 flex items-center justify-center text-base bounce-btn shadow" title="Toggle Theme">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl w-full mx-auto p-4 sm:p-6 flex-grow">
+
+        <section id="sec-dashboard" class="space-y-6">
+            <div class="bg-gradient-to-r from-indigo-600 via-sky-600 to-teal-500 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border-4 border-sky-200">
+                <div class="max-w-2xl relative z-10 space-y-3">
+                    <span class="bg-white/30 text-white font-extrabold text-xs uppercase px-3.5 py-1.5 rounded-full backdrop-blur-sm">20 Dedicated Exam Exercises</span>
+                    <h2 class="text-3xl sm:text-4xl font-black drop-shadow-md">Master Reading & Writing Parts 3, 6 & 7 ✍️</h2>
+                    <p class="text-sky-100 text-xs sm:text-sm font-semibold leading-relaxed">
+                        Practice <strong>10 Reading Comprehension questions</strong> (Part 3), <strong>5 Guided Email/Note Writing challenges</strong> (Part 6), and <strong>5 Story Writing prompts</strong> (Part 7) designed according to the Year 5 CEFR syllabus.
+                    </p>
+                </div>
+                <div class="absolute -right-4 -bottom-8 text-9xl opacity-20 select-none">
+                    📝
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Module 1: Part 3 Reading Comprehension -->
+                <div onclick="startComprehensionModule()" class="bg-white dark:bg-slate-800 border-4 border-sky-300 dark:border-sky-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-sky-100 dark:bg-sky-900/60 flex items-center justify-center text-4xl">
+                            📚
+                        </div>
+                        <h3 class="text-lg font-black text-slate-900 dark:text-white">Part 3: Comprehension</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            10 Questions based on 3 rich passages: Animal Sanctuary, Eco-Club, and Holiday Trip to Cameron Highlands.
+                        </p>
+                    </div>
+                    <button class="w-full bg-sky-500 hover:bg-sky-600 text-white font-black py-3 rounded-2xl text-xs shadow-md border-b-4 border-sky-700">
+                        Start Reading (10 Questions) 📖
+                    </button>
+                </div>
+
+                <!-- Module 2: Part 6 Short Notes & Emails -->
+                <div onclick="startPart6Module()" class="bg-white dark:bg-slate-800 border-4 border-purple-300 dark:border-purple-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-100 dark:bg-purple-900/60 flex items-center justify-center text-4xl">
+                            ✉️
+                        </div>
+                        <h3 class="text-lg font-black text-slate-900 dark:text-white">Part 6: Short Emails</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            5 Short note & email prompts (30-50 words) with live word counts, checklist tools, and model answer keys.
+                        </p>
+                    </div>
+                    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-black py-3 rounded-2xl text-xs shadow-md border-b-4 border-purple-700">
+                        Practice Email Writing (5 Tasks) 📝
+                    </button>
+                </div>
+
+                <!-- Module 3: Part 7 Guided Writing & Stories -->
+                <div onclick="startPart7Module()" class="bg-white dark:bg-slate-800 border-4 border-emerald-300 dark:border-emerald-600 rounded-3xl p-6 text-center shadow-xl cursor-pointer bounce-btn space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center text-4xl">
+                            🎨
+                        </div>
+                        <h3 class="text-lg font-black text-slate-900 dark:text-white">Part 7: Guided Stories</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold leading-relaxed">
+                            5 Guided composition prompts (60-80 words) featuring past simple tense guides and vocabulary helpers.
+                        </p>
+                    </div>
+                    <button class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-3 rounded-2xl text-xs shadow-md border-b-4 border-emerald-700">
+                        Practice Story Writing (5 Tasks) 🏆
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-comprehension" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-sky-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 3 Reading</span>
+                    <span id="comp-progress-text" class="text-xs sm:text-sm font-black text-sky-600 dark:text-sky-400">Exercise 1 of 10</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Reading Passage Card -->
+                <div class="lg:col-span-6 bg-white dark:bg-slate-800 border-4 border-sky-300 dark:border-sky-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="flex justify-between items-center border-b pb-3 border-slate-200 dark:border-slate-700">
+                        <span id="comp-passage-title" class="font-extrabold text-sm sm:text-base text-sky-700 dark:text-sky-400">
+                            <!-- Dynamic Passage Title -->
+                        </span>
+                        <button onclick="speakPassage()" class="bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-extrabold text-xs px-3 py-1.5 rounded-xl flex items-center gap-1.5 bounce-btn">
+                            <i class="fa-solid fa-volume-high"></i> Listen
+                        </button>
+                    </div>
+                    <div id="comp-passage-body" class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed space-y-3 custom-scrollbar max-h-96 overflow-y-auto pr-2">
+                        <!-- Dynamic Passage Paragraphs -->
+                    </div>
+                </div>
+
+                <!-- Comprehension Question Card -->
+                <div class="lg:col-span-6 bg-white dark:bg-slate-800 border-4 border-indigo-300 dark:border-indigo-600 rounded-3xl p-6 shadow-xl space-y-5 card-pop flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="space-y-1">
+                            <span id="comp-q-badge" class="bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-extrabold text-xs px-3 py-1 rounded-full uppercase">Question 1</span>
+                            <p id="comp-q-text" class="text-sm sm:text-base font-black text-slate-900 dark:text-white pt-2 leading-snug">
+                                <!-- Dynamic Question Text -->
+                            </p>
+                        </div>
+
+                        <!-- Options List -->
+                        <div id="comp-options-list" class="space-y-3">
+                            <!-- Options rendered dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Feedback Box -->
+                    <div id="comp-feedback-box" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm font-black border-2 text-center"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-part6" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-purple-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 6 Writing</span>
+                    <span id="part6-progress-text" class="text-xs sm:text-sm font-black text-purple-600 dark:text-purple-400">Prompt 1 of 5</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Prompt Card -->
+                <div class="lg:col-span-5 bg-white dark:bg-slate-800 border-4 border-purple-300 dark:border-purple-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="bg-purple-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-purple-200 dark:border-purple-800 space-y-2">
+                        <span class="bg-purple-200 dark:bg-purple-900 text-purple-800 dark:text-purple-200 font-extrabold text-xs px-2.5 py-1 rounded-lg">Target: 30 - 50 words</span>
+                        <h3 id="p6-prompt-title" class="font-extrabold text-slate-900 dark:text-white text-base">
+                            <!-- Dynamic Prompt Title -->
+                        </h3>
+                        <p id="p6-prompt-body" class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold leading-relaxed">
+                            <!-- Dynamic Prompt Content -->
+                        </p>
+                    </div>
+
+                    <!-- Checklist -->
+                    <div class="bg-amber-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-amber-300 dark:border-amber-700 space-y-2">
+                        <h4 class="font-extrabold text-amber-800 dark:text-amber-400 text-xs uppercase flex items-center gap-2">
+                            <span>📋</span> Checklist Prompts:
+                        </h4>
+                        <ul id="p6-bullet-points" class="text-xs font-bold text-slate-700 dark:text-slate-300 space-y-1">
+                            <!-- Dynamic Bullet Points -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Writing Workspace -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 border-4 border-purple-300 dark:border-purple-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label for="p6-input" class="font-extrabold text-sm text-purple-700 dark:text-purple-400">Write your Response:</label>
+                        <span id="p6-word-count" class="text-xs font-black px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">0 words</span>
+                    </div>
+
+                    <textarea id="p6-input" oninput="updateP6WordCount()" rows="8" placeholder="Type your email or short note here..." class="w-full p-4 rounded-2xl border-3 border-purple-200 dark:border-purple-800 focus:border-purple-500 outline-none text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 custom-scrollbar leading-relaxed"></textarea>
+
+                    <div class="flex flex-wrap gap-3 justify-between items-center">
+                        <button onclick="checkP6Submission()" class="bg-purple-500 hover:bg-purple-600 text-white font-black px-6 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-purple-700 bounce-btn">
+                            Submit Note & Earn Stars 🌟
+                        </button>
+                        <button onclick="toggleP6ModelAnswer()" class="bg-indigo-500 hover:bg-indigo-600 text-white font-black px-4 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-indigo-700 bounce-btn">
+                            View Model Answer 💡
+                        </button>
+                    </div>
+
+                    <!-- Model Answer Box -->
+                    <div id="p6-model-box" class="hidden bg-emerald-50 dark:bg-slate-900 border-2 border-emerald-300 dark:border-emerald-700 p-4 rounded-2xl space-y-2 card-pop">
+                        <h4 class="font-extrabold text-emerald-800 dark:text-emerald-400 text-xs uppercase">✨ Ideal Model Answer:</h4>
+                        <div id="p6-model-text" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 leading-relaxed whitespace-pre-line">
+                            <!-- Model Answer Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-part7" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <button onclick="showSection('dashboard')" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 font-extrabold px-4 py-2 rounded-2xl text-xs sm:text-sm flex items-center gap-2 bounce-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="bg-emerald-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">Part 7 Story Writing</span>
+                    <span id="part7-progress-text" class="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400">Prompt 1 of 5</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Prompt & Vocabulary Helper -->
+                <div class="lg:col-span-5 bg-white dark:bg-slate-800 border-4 border-emerald-300 dark:border-emerald-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="bg-emerald-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 space-y-2">
+                        <span class="bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 font-extrabold text-xs px-2.5 py-1 rounded-lg">Target: 60 - 80 words</span>
+                        <h3 id="p7-prompt-title" class="font-extrabold text-slate-900 dark:text-white text-base">
+                            <!-- Dynamic Story Title -->
+                        </h3>
+                        <p id="p7-prompt-body" class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold leading-relaxed">
+                            <!-- Dynamic Story Description -->
+                        </p>
+                    </div>
+
+                    <!-- Helpful Word Bank -->
+                    <div class="bg-indigo-50 dark:bg-slate-900 p-4 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 space-y-2">
+                        <h4 class="font-extrabold text-indigo-800 dark:text-indigo-400 text-xs uppercase flex items-center gap-2">
+                            <span>🔤</span> Suggested Word Bank:
+                        </h4>
+                        <div id="p7-word-bank" class="flex flex-wrap gap-1.5">
+                            <!-- Dynamic Word Bank Chips -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Writing Workspace -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 border-4 border-emerald-300 dark:border-emerald-600 rounded-3xl p-6 shadow-xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label for="p7-input" class="font-extrabold text-sm text-emerald-700 dark:text-emerald-400">Write your Guided Story:</label>
+                        <span id="p7-word-count" class="text-xs font-black px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">0 words</span>
+                    </div>
+
+                    <textarea id="p7-input" oninput="updateP7WordCount()" rows="10" placeholder="Write your story using the past simple tense..." class="w-full p-4 rounded-2xl border-3 border-emerald-200 dark:border-emerald-800 focus:border-emerald-500 outline-none text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 custom-scrollbar leading-relaxed"></textarea>
+
+                    <div class="flex flex-wrap gap-3 justify-between items-center">
+                        <button onclick="checkP7Submission()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-6 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-emerald-700 bounce-btn">
+                            Submit Story & Earn Stars 🌟
+                        </button>
+                        <button onclick="toggleP7ModelAnswer()" class="bg-indigo-500 hover:bg-indigo-600 text-white font-black px-4 py-2.5 rounded-2xl text-xs sm:text-sm shadow-md border-b-4 border-indigo-700 bounce-btn">
+                            View Model Story 📖
+                        </button>
+                    </div>
+
+                    <!-- Model Story Box -->
+                    <div id="p7-model-box" class="hidden bg-sky-50 dark:bg-slate-900 border-2 border-sky-300 dark:border-sky-700 p-4 rounded-2xl space-y-2 card-pop">
+                        <h4 class="font-extrabold text-sky-800 dark:text-sky-400 text-xs uppercase">🏆 Model Story Sample:</h4>
+                        <div id="p7-model-text" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 leading-relaxed whitespace-pre-line">
+                            <!-- Model Story Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="reward-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl border-4 border-amber-400 space-y-5 card-pop">
+                <div class="text-7xl float-anim">🏆</div>
+                <div class="space-y-1">
+                    <h3 id="modal-title" class="text-3xl font-black text-slate-900 dark:text-white">Fantastic Work!</h3>
+                    <p id="modal-subtitle" class="text-xs text-slate-500 font-bold">You completed the exercise set!</p>
+                </div>
+                <div class="flex justify-center gap-2 text-4xl text-amber-400">
+                    <i class="fa-solid fa-star star-glow"></i>
+                    <i class="fa-solid fa-star star-glow"></i>
+                    <i class="fa-solid fa-star star-glow"></i>
+                </div>
+                <button onclick="closeRewardModal()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-black py-3.5 rounded-2xl text-base shadow-lg border-b-4 border-amber-700 bounce-btn">
+                    Continue Learning 🚀
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-4 text-center text-xs font-bold text-slate-400 border-t border-slate-200 dark:border-slate-800">
+        UASA English Year 5 Practice Hub • CEFR English Plus 1 Syllabus
+    </footer>
+
+    <script>
+        const EXERCISE_DATA = {
+            // PART 3: 10 COMPREHENSION QUESTIONS (Across 3 Passages)
+            comprehension: [
+                // Passage 1: Questions 1-3
+                {
+                    passageId: 1,
+                    passageTitle: "📰 Article: The Sepilok Wildlife Sanctuary",
+                    passageBody: [
+                        "Sepilok Orangutan Rehabilitation Centre is located in Sabah, Malaysia. It was established in 1964 to rescue orphaned baby orangutans from logging sites and illegal hunting.",
+                        "At Sepilok, trained rangers care for young orangutans and teach them essential survival skills, such as climbing trees and finding fruit in the rainforest. When the orangutans are old enough to survive independently, they are released back into the wild reserve.",
+                        "Visitors can watch the orangutans from a special viewing platform during daily feeding times at 10:00 a.m. and 3:00 p.m. Feeding times are very popular because guests can see orangutans swinging gracefully through the trees."
+                    ],
+                    question: "1. Why was the Sepilok Orangutan Rehabilitation Centre founded in 1964?",
+                    options: [
+                        "To teach visitors how to climb tall rainforest trees.",
+                        "To rescue orphaned orangutans from logging and illegal hunting.",
+                        "To build a large zoo for wild animals in Sabah."
+                    ],
+                    correctIndex: 1,
+                    explanation: "Paragraph 1 states it was established to rescue orphaned baby orangutans."
+                },
+                {
+                    passageId: 1,
+                    passageTitle: "📰 Article: The Sepilok Wildlife Sanctuary",
+                    passageBody: [
+                        "Sepilok Orangutan Rehabilitation Centre is located in Sabah, Malaysia. It was established in 1964 to rescue orphaned baby orangutans from logging sites and illegal hunting.",
+                        "At Sepilok, trained rangers care for young orangutans and teach them essential survival skills, such as climbing trees and finding fruit in the rainforest. When the orangutans are old enough to survive independently, they are released back into the wild reserve.",
+                        "Visitors can watch the orangutans from a special viewing platform during daily feeding times at 10:00 a.m. and 3:00 p.m. Feeding times are very popular because guests can see orangutans swinging gracefully through the trees."
+                    ],
+                    question: "2. What do rangers teach young orangutans before releasing them back into the wild?",
+                    options: [
+                        "How to perform tricks for visiting tourists.",
+                        "How to build wooden shelters for rangers.",
+                        "How to climb trees and find fruit in the rainforest."
+                    ],
+                    correctIndex: 2,
+                    explanation: "Paragraph 2 explicitly mentions rangers teach survival skills like climbing trees and finding fruit."
+                },
+                {
+                    passageId: 1,
+                    passageTitle: "📰 Article: The Sepilok Wildlife Sanctuary",
+                    passageBody: [
+                        "Sepilok Orangutan Rehabilitation Centre is located in Sabah, Malaysia. It was established in 1964 to rescue orphaned baby orangutans from logging sites and illegal hunting.",
+                        "At Sepilok, trained rangers care for young orangutans and teach them essential survival skills, such as climbing trees and finding fruit in the rainforest. When the orangutans are old enough to survive independently, they are released back into the wild reserve.",
+                        "Visitors can watch the orangutans from a special viewing platform during daily feeding times at 10:00 a.m. and 3:00 p.m. Feeding times are very popular because guests can see orangutans swinging gracefully through the trees."
+                    ],
+                    question: "3. What does the word 'independently' in paragraph 2 mean?",
+                    options: [
+                        "Without needing help or care from others.",
+                        "With continuous assistance from park rangers.",
+                        "In a dangerous and careless manner."
+                    ],
+                    correctIndex: 0,
+                    explanation: "'Independently' means being able to survive on their own without human aid."
+                },
+
+                // Passage 2: Questions 4-7
+                {
+                    passageId: 2,
+                    passageTitle: "🌱 Report: SK Murni Eco-Green Club",
+                    passageBody: [
+                        "Last month, SK Murni launched the Eco-Green Club to encourage Year 5 pupils to care for the environment. Over thirty pupils registered as club members during the first week.",
+                        "Every Tuesday afternoon, club members gather in the school garden. They grow organic vegetables such as spinach and carrots, compost food waste from the canteen, and collect plastic bottles for recycling.",
+                        "Next week, the club is organizing a 'Zero Plastic Day' campaign. All pupils are encouraged to bring reusable water bottles and food containers to school instead of single-use plastic bags."
+                    ],
+                    question: "4. What is the main goal of SK Murni's Eco-Green Club?",
+                    options: [
+                        "To teach pupils how to cook organic canteen meals.",
+                        "To encourage Year 5 pupils to care for the environment.",
+                        "To sell plastic bottles to local recycling factories."
+                    ],
+                    correctIndex: 1,
+                    explanation: "Paragraph 1 states the club was launched to encourage pupils to care for the environment."
+                },
+                {
+                    passageId: 2,
+                    passageTitle: "🌱 Report: SK Murni Eco-Green Club",
+                    passageBody: [
+                        "Last month, SK Murni launched the Eco-Green Club to encourage Year 5 pupils to care for the environment. Over thirty pupils registered as club members during the first week.",
+                        "Every Tuesday afternoon, club members gather in the school garden. They grow organic vegetables such as spinach and carrots, compost food waste from the canteen, and collect plastic bottles for recycling.",
+                        "Next week, the club is organizing a 'Zero Plastic Day' campaign. All pupils are encouraged to bring reusable water bottles and food containers to school instead of single-use plastic bags."
+                    ],
+                    question: "5. How often do Eco-Green Club members meet to work in the garden?",
+                    options: [
+                        "Every Tuesday afternoon.",
+                        "Every morning before assembly.",
+                        "Once every month."
+                    ],
+                    correctIndex: 0,
+                    explanation: "Paragraph 2 states they gather in the school garden every Tuesday afternoon."
+                },
+                {
+                    passageId: 2,
+                    passageTitle: "🌱 Report: SK Murni Eco-Green Club",
+                    passageBody: [
+                        "Last month, SK Murni launched the Eco-Green Club to encourage Year 5 pupils to care for the environment. Over thirty pupils registered as club members during the first week.",
+                        "Every Tuesday afternoon, club members gather in the school garden. They grow organic vegetables such as spinach and carrots, compost food waste from the canteen, and collect plastic bottles for recycling.",
+                        "Next week, the club is organizing a 'Zero Plastic Day' campaign. All pupils are encouraged to bring reusable water bottles and food containers to school instead of single-use plastic bags."
+                    ],
+                    question: "6. What are pupils expected to bring during the 'Zero Plastic Day' campaign?",
+                    options: [
+                        "Plastic bags and disposable cups.",
+                        "Single-use food containers.",
+                        "Reusable water bottles and food containers."
+                    ],
+                    correctIndex: 2,
+                    explanation: "Paragraph 3 explicitly states pupils are encouraged to bring reusable bottles and containers."
+                },
+                {
+                    passageId: 2,
+                    passageTitle: "🌱 Report: SK Murni Eco-Green Club",
+                    passageBody: [
+                        "Last month, SK Murni launched the Eco-Green Club to encourage Year 5 pupils to care for the environment. Over thirty pupils registered as club members during the first week.",
+                        "Every Tuesday afternoon, club members gather in the school garden. They grow organic vegetables such as spinach and carrots, compost food waste from the canteen, and collect plastic bottles for recycling.",
+                        "Next week, the club is organizing a 'Zero Plastic Day' campaign. All pupils are encouraged to bring reusable water bottles and food containers to school instead of single-use plastic bags."
+                    ],
+                    question: "7. Which activity is NOT mentioned as a weekly activity in paragraph 2?",
+                    options: [
+                        "Growing organic spinach and carrots.",
+                        "Painting murals on the canteen walls.",
+                        "Composting food waste from the canteen."
+                    ],
+                    correctIndex: 1,
+                    explanation: "Painting murals is never mentioned in the paragraph."
+                },
+
+                // Passage 3: Questions 8-10
+                {
+                    passageId: 3,
+                    passageTitle: "🍓 Travel Journal: Trip to Cameron Highlands",
+                    passageBody: [
+                        "During the recent school holidays, Imran and his family travelled to Cameron Highlands for a three-day holiday. They stayed at a cozy chalet near Tanah Rata.",
+                        "On the second day, they visited a famous strawberry farm. Imran picked fresh red strawberries straight from the plants. They also enjoyed delicious strawberry ice cream and warm tea at the farm cafe.",
+                        "Before heading home, Imran's mother bought fresh tea leaves and colorful orchids at the local market. Imran felt happy because the weather in Cameron Highlands was cool and refreshing."
+                    ],
+                    question: "8. How long did Imran's family stay in Cameron Highlands?",
+                    options: [
+                        "For two days.",
+                        "For three days.",
+                        "For one full week."
+                    ],
+                    correctIndex: 1,
+                    explanation: "Paragraph 1 mentions they went for a three-day holiday."
+                },
+                {
+                    passageId: 3,
+                    passageTitle: "🍓 Travel Journal: Trip to Cameron Highlands",
+                    passageBody: [
+                        "During the recent school holidays, Imran and his family travelled to Cameron Highlands for a three-day holiday. They stayed at a cozy chalet near Tanah Rata.",
+                        "On the second day, they visited a famous strawberry farm. Imran picked fresh red strawberries straight from the plants. They also enjoyed delicious strawberry ice cream and warm tea at the farm cafe.",
+                        "Before heading home, Imran's mother bought fresh tea leaves and colorful orchids at the local market. Imran felt happy because the weather in Cameron Highlands was cool and refreshing."
+                    ],
+                    question: "9. What did Imran do at the strawberry farm?",
+                    options: [
+                        "He picked fresh red strawberries and ate strawberry ice cream.",
+                        "He bought orchids for his mother.",
+                        "He planted tea bushes with farmers."
+                    ],
+                    correctIndex: 0,
+                    explanation: "Paragraph 2 states Imran picked fresh strawberries and enjoyed ice cream at the cafe."
+                },
+                {
+                    passageId: 3,
+                    passageTitle: "🍓 Travel Journal: Trip to Cameron Highlands",
+                    passageBody: [
+                        "During the recent school holidays, Imran and his family travelled to Cameron Highlands for a three-day holiday. They stayed at a cozy chalet near Tanah Rata.",
+                        "On the second day, they visited a famous strawberry farm. Imran picked fresh red strawberries straight from the plants. They also enjoyed delicious strawberry ice cream and warm tea at the farm cafe.",
+                        "Before heading home, Imran's mother bought fresh tea leaves and colorful orchids at the local market. Imran felt happy because the weather in Cameron Highlands was cool and refreshing."
+                    ],
+                    question: "10. Why did Imran enjoy his vacation in Cameron Highlands?",
+                    options: [
+                        "Because the chalet had a large swimming pool.",
+                        "Because the weather was cool and refreshing.",
+                        "Because he won a prize at the market."
+                    ],
+                    correctIndex: 1,
+                    explanation: "Paragraph 3 notes Imran was happy because the weather was cool and refreshing."
+                }
+            ],
+
+            // PART 6: 5 SHORT NOTE / EMAIL WRITING EXERCISES
+            part6Prompts: [
+                {
+                    id: 1,
+                    title: "Email to a Friend: Joining the Badminton Club",
+                    body: "You want to invite your friend, Johan, to join the school Badminton Club with you this Friday.",
+                    bullets: [
+                        "Invite him to join the club",
+                        "State the time and day of practice",
+                        "Remind him what equipment to bring"
+                    ],
+                    modelAnswer: `To: johan@email.com
+Subject: Joining Badminton Club
+
+Hi Johan,
+
+How are you? I would like to invite you to join the school Badminton Club with me. We practice every Friday at 3:00 p.m. in the school hall. Please remember to bring your badminton racket and wear your sports shoes!
+
+Hope to see you there!
+
+Your friend,
+Aiman`
+                },
+                {
+                    id: 2,
+                    title: "Message to Mum: Help After School",
+                    body: "Write a short message to your mother informing her about your late arrival home due to extra tuition.",
+                    bullets: [
+                        "Explain why you will be late",
+                        "State what time you will reach home",
+                        "Ask her not to worry"
+                    ],
+                    modelAnswer: `Dear Mum,
+
+I am writing to let you know that I will be late coming home today. I have an extra English tuition class until 4:30 p.m. I will arrive home around 5:00 p.m. by school bus. Please do not worry!
+
+Love,
+Siti`
+                },
+                {
+                    id: 3,
+                    title: "Email to Cousin: Planning a Picnic",
+                    body: "Write an email to your cousin, Mei Ling, inviting her for a weekend picnic at the lake park.",
+                    bullets: [
+                        "Invite her to the picnic",
+                        "Mention the location and time",
+                        "Suggest a food item to bring"
+                    ],
+                    modelAnswer: `To: meiling@email.com
+Subject: Weekend Picnic Fun
+
+Hi Mei Ling,
+
+Would you like to come for a picnic this Saturday morning? We are going to Lake Park at 8:30 a.m. It will be lots of fun! Could you please bring some delicious sandwiches or fruits?
+
+See you soon!
+
+Love,
+Lin`
+                },
+                {
+                    id: 4,
+                    title: "Note to Classmate: Borrowing a Storybook",
+                    body: "Write a short note to your classmate, Dinesh, asking to borrow his adventure storybook.",
+                    bullets: [
+                        "Ask to borrow the book",
+                        "State how long you need it",
+                        "Promise when you will return it"
+                    ],
+                    modelAnswer: `Hi Dinesh,
+
+Could I please borrow your adventure storybook, 'The Secret Island'? I need it for about three days to finish reading. I promise to return it to you next Monday in good condition.
+
+Thank you so much!
+
+Your classmate,
+Ravi`
+                },
+                {
+                    id: 5,
+                    title: "Email to Teacher: Absence from Sports Practice",
+                    body: "Write an email to your sports teacher, Mr. Lee, explaining why you missed football practice yesterday.",
+                    bullets: [
+                        "State the reason for missing practice",
+                        "Apologize for not attending",
+                        "Ask about the next practice session"
+                    ],
+                    modelAnswer: `To: mrlee@school.edu.my
+Subject: Absence from Football Practice
+
+Dear Mr. Lee,
+
+I am writing to apologize for missing football practice yesterday afternoon. I had a high fever and visited the doctor. May I know when our next practice session will be held?
+
+Thank you for your understanding.
+
+Sincerely,
+Adam`
+                }
+            ],
+
+            // PART 7: 5 GUIDED STORY WRITING EXERCISES
+            part7Prompts: [
+                {
+                    id: 1,
+                    title: "A Helpful Act at the Park",
+                    body: "Write a story about a boy named Danial who helped a lost puppy while playing at the park.",
+                    words: ["walking in park", "heard barking", "spotted lost puppy", "checked collar", "called owner", "owner grateful"],
+                    modelAnswer: `Last Saturday, Danial went for a walk at the neighbourhood park. While walking near the trees, he suddenly heard a loud barking sound. He looked around and spotted a small, shivering lost puppy behind a bench.
+
+Danial gently approached the puppy and checked its collar. He found a telephone number on the tag and immediately called the owner. 
+
+Ten minutes later, a worried lady arrived at the park. She was relieved to find her puppy safe. She thanked Danial warmly for his honesty and gave him a reward. Danial felt very happy.`
+                },
+                {
+                    id: 2,
+                    title: "A Fire Drill at School",
+                    body: "Write a story about how Year 5 pupils responded quickly during a surprise fire drill at school.",
+                    words: ["siren sounded", "lined up quietly", "walked to field", "teacher counted pupils", "firefighters demonstrated", "valuable lesson"],
+                    modelAnswer: `Yesterday morning, the school fire alarm suddenly sounded loudly during English class. All the Year 5 pupils remained calm and lined up quietly at the door.
+
+Their teacher guided them down the stairs safely to the school field. Once on the field, the teacher quickly counted the pupils to ensure everyone was safe.
+
+Moments later, friendly firefighters gave a safety demonstration on how to use fire extinguishers. The pupils learned a valuable lesson about emergency safety and felt proud of their quick response.`
+                },
+                {
+                    id: 3,
+                    title: "An Unforgettable Camping Trip",
+                    body: "Write a story about a family camping trip to a river reserve during the school holidays.",
+                    words: ["packed tents", "pitched camp", "swam in river", "cooked BBQ dinner", "sang songs", "memorable weekend"],
+                    modelAnswer: `During the last school holidays, Kamal and his family went camping near a rainforest river. They packed their tents and sleeping bags early in the morning.
+
+When they arrived, Kamal helped his father pitch the tents under shade trees. In the afternoon, Kamal and his brother swam in the cool, refreshing river water.
+
+In the evening, they cooked a delicious barbecue dinner over a campfire and sang songs under the starry sky. It was a truly memorable weekend for Kamal's family.`
+                },
+                {
+                    id: 4,
+                    title: "A Cleaning Campaign at School",
+                    body: "Write a story about pupils participating in a Gotong-Royong cleaning campaign at school.",
+                    words: ["gotong-royong day", "swept leaves", "painted fences", "collected rubbish", "served drinks", "clean school"],
+                    modelAnswer: `Last Sunday morning, SK Permata organized a Gotong-Royong cleaning campaign. Pupils, teachers, and parents gathered enthusiastically at the school courtyard at 8:00 a.m.
+
+Equipped with brooms and paintbrushes, the pupils swept fallen leaves and painted the wooden garden fences in bright colors. Others collected plastic bottles and rubbish into large recycling bags.
+
+After two hours of hard work, the headmaster served delicious snacks and cold drinks to everyone. The school compound looked clean, beautiful, and vibrant.`
+                },
+                {
+                    id: 5,
+                    title: "Winning the School Sports Day Trophy",
+                    body: "Write a story about how Sarah won first place in the 100-meter sprint race on Sports Day.",
+                    words: ["sports day", "nervous at starting line", "whistle blew", "sprinted fast", "crossed finish line", "won gold medal"],
+                    modelAnswer: `It was SK Wilayah's annual Sports Day, and Sarah was competing in the 100-meter sprint race. She stood nervously at the starting line, wearing her red house uniform.
+
+When the referee blew the whistle, Sarah dashed forward as fast as she could. She focused on the finish line and pumped her arms vigorously. 
+
+With a final burst of energy, Sarah crossed the finish line first! The crowd cheered loudly as the headmaster presented her with a shiny gold medal. Sarah smiled proudly.`
+                }
+            ]
+        };
+
+        let currentStars = 0;
+        let speechEnabled = true;
+
+        // Exercise Indexes
+        let compIndex = 0;
+        let p6Index = 0;
+        let p7Index = 0;
+
+        // UI Navigation
+        function showSection(secId) {
+            playSound('click');
+            const sections = ['dashboard', 'comprehension', 'part6', 'part7'];
+            sections.forEach(s => {
+                const el = document.getElementById(`sec-${s}`);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(`sec-${secId}`);
+            if (target) target.classList.remove('hidden');
+        }
+
+        // ================= PART 3 COMPREHENSION LOGIC =================
+        function startComprehensionModule() {
+            compIndex = 0;
+            loadComprehensionQuestion();
+            showSection('comprehension');
+        }
+
+        function loadComprehensionQuestion() {
+            const list = EXERCISE_DATA.comprehension;
+            const q = list[compIndex];
+
+            document.getElementById('comp-progress-text').innerText = `Question ${compIndex + 1} of ${list.length}`;
+            document.getElementById('comp-passage-title').innerText = q.passageTitle;
+            document.getElementById('comp-passage-body').innerHTML = q.passageBody.map(p => `<p>${p}</p>`).join('');
+
+            document.getElementById('comp-q-badge').innerText = `Question ${compIndex + 1}`;
+            document.getElementById('comp-q-text').innerText = q.question;
+
+            const feedback = document.getElementById('comp-feedback-box');
+            feedback.classList.add('hidden');
+
+            const grid = document.getElementById('comp-options-list');
+            grid.innerHTML = q.options.map((opt, i) => `
+                <button onclick="answerComprehension(${i})" class="comp-opt-btn w-full bg-slate-50 dark:bg-slate-700/60 hover:bg-sky-100 dark:hover:bg-sky-950/60 border-2 border-slate-200 dark:border-slate-600 rounded-2xl p-3.5 text-left font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100 bounce-btn flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-full bg-sky-200 dark:bg-sky-900 text-sky-800 dark:text-sky-200 flex items-center justify-center font-black shrink-0">${String.fromCharCode(65 + i)}</span>
+                    <span>${opt}</span>
+                </button>
+            `).join('');
+
+            speakText(q.question);
+        }
+
+        function speakPassage() {
+            const q = EXERCISE_DATA.comprehension[compIndex];
+            speakText(q.passageBody.join(' '));
+        }
+
+        function answerComprehension(selectedIndex) {
+            const q = EXERCISE_DATA.comprehension[compIndex];
+            const feedback = document.getElementById('comp-feedback-box');
+
+            document.querySelectorAll('.comp-opt-btn').forEach(btn => btn.classList.add('pointer-events-none'));
+
+            if (selectedIndex === q.correctIndex) {
+                playSound('correct');
+                addStars(5);
+
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-emerald-100 border-emerald-400 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 block card-pop";
+                feedback.innerHTML = `✅ Correct! ${q.explanation}`;
+
+                setTimeout(() => {
+                    compIndex++;
+                    if (compIndex < EXERCISE_DATA.comprehension.length) {
+                        loadComprehensionQuestion();
+                    } else {
+                        triggerRewardModal("Comprehension Master! 📚", "You finished all 10 Reading Comprehension exercises!");
+                    }
+                }, 1800);
+            } else {
+                playSound('wrong');
+                feedback.className = "p-3.5 rounded-2xl text-center font-black text-xs sm:text-sm bg-rose-100 border-rose-400 text-rose-800 dark:bg-rose-950 dark:text-rose-200 block card-pop";
+                feedback.innerHTML = `❌ Incorrect. Try again!`;
+
+                setTimeout(() => {
+                    document.querySelectorAll('.comp-opt-btn').forEach(btn => btn.classList.remove('pointer-events-none'));
+                }, 1200);
+            }
+        }
+
+        // ================= PART 6 WRITING LOGIC =================
+        function startPart6Module() {
+            p6Index = 0;
+            loadPart6Prompt();
+            showSection('part6');
+        }
+
+        function loadPart6Prompt() {
+            const item = EXERCISE_DATA.part6Prompts[p6Index];
+            document.getElementById('part6-progress-text').innerText = `Prompt ${p6Index + 1} of 5`;
+            document.getElementById('p6-prompt-title').innerText = item.title;
+            document.getElementById('p6-prompt-body').innerText = item.body;
+
+            document.getElementById('p6-bullet-points').innerHTML = item.bullets.map(b => `<li>• ${b}</li>`).join('');
+            document.getElementById('p6-input').value = '';
+            document.getElementById('p6-word-count').innerText = '0 words';
+
+            document.getElementById('p6-model-box').classList.add('hidden');
+            document.getElementById('p6-model-text').innerText = item.modelAnswer;
+        }
+
+        function updateP6WordCount() {
+            const val = document.getElementById('p6-input').value.trim();
+            const words = val ? val.split(/\s+/).length : 0;
+            const badge = document.getElementById('p6-word-count');
+            badge.innerText = `${words} words`;
+
+            if (words >= 30 && words <= 50) {
+                badge.className = "text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300";
+            } else {
+                badge.className = "text-xs font-black px-3 py-1 rounded-full bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300";
+            }
+        }
+
+        function toggleP6ModelAnswer() {
+            const box = document.getElementById('p6-model-box');
+            box.classList.toggle('hidden');
+            playSound('click');
+        }
+
+        function checkP6Submission() {
+            const val = document.getElementById('p6-input').value.trim();
+            const words = val ? val.split(/\s+/).length : 0;
+
+            if (words < 15) {
+                alert("Please write a longer response (at least 20-30 words) to complete Part 6!");
+                return;
+            }
+
+            playSound('correct');
+            addStars(10);
+            triggerConfetti();
+
+            p6Index++;
+            if (p6Index < EXERCISE_DATA.part6Prompts.length) {
+                setTimeout(() => loadPart6Prompt(), 1000);
+            } else {
+                triggerRewardModal("Part 6 Completed! ✉️", "You finished all 5 Short Email Writing exercises!");
+            }
+        }
+
+        // ================= PART 7 WRITING LOGIC =================
+        function startPart7Module() {
+            p7Index = 0;
+            loadPart7Prompt();
+            showSection('part7');
+        }
+
+        function loadPart7Prompt() {
+            const item = EXERCISE_DATA.part7Prompts[p7Index];
+            document.getElementById('part7-progress-text').innerText = `Prompt ${p7Index + 1} of 5`;
+            document.getElementById('p7-prompt-title').innerText = item.title;
+            document.getElementById('p7-prompt-body').innerText = item.body;
+
+            document.getElementById('p7-word-bank').innerHTML = item.words.map(w => `
+                <span class="bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 font-bold text-xs px-2.5 py-1 rounded-xl">${w}</span>
+            `).join('');
+
+            document.getElementById('p7-input').value = '';
+            document.getElementById('p7-word-count').innerText = '0 words';
+
+            document.getElementById('p7-model-box').classList.add('hidden');
+            document.getElementById('p7-model-text').innerText = item.modelAnswer;
+        }
+
+        function updateP7WordCount() {
+            const val = document.getElementById('p7-input').value.trim();
+            const words = val ? val.split(/\s+/).length : 0;
+            const badge = document.getElementById('p7-word-count');
+            badge.innerText = `${words} words`;
+
+            if (words >= 60 && words <= 80) {
+                badge.className = "text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300";
+            } else {
+                badge.className = "text-xs font-black px-3 py-1 rounded-full bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300";
+            }
+        }
+
+        function toggleP7ModelAnswer() {
+            const box = document.getElementById('p7-model-box');
+            box.classList.toggle('hidden');
+            playSound('click');
+        }
+
+        function checkP7Submission() {
+            const val = document.getElementById('p7-input').value.trim();
+            const words = val ? val.split(/\s+/).length : 0;
+
+            if (words < 40) {
+                alert("Please write a longer story (target: 60-80 words) to complete Part 7!");
+                return;
+            }
+
+            playSound('correct');
+            addStars(15);
+            triggerConfetti();
+
+            p7Index++;
+            if (p7Index < EXERCISE_DATA.part7Prompts.length) {
+                setTimeout(() => loadPart7Prompt(), 1000);
+            } else {
+                triggerRewardModal("Part 7 Completed! 🏆", "You finished all 5 Story Writing exercises!");
+            }
+        }
+
+        // ================= UTILITIES & AUDIO =================
+        function addStars(num) {
+            currentStars += num;
+            document.getElementById('star-count').innerText = currentStars;
+        }
+
+        function triggerRewardModal(title, sub) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-subtitle').innerText = sub;
+            document.getElementById('reward-modal').classList.remove('hidden');
+            triggerConfetti();
+        }
+
+        function closeRewardModal() {
+            document.getElementById('reward-modal').classList.add('hidden');
+            showSection('dashboard');
+        }
+
+        function triggerConfetti() {
+            try {
+                confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+            } catch (e) {}
+        }
+
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (!speechEnabled) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(480, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.06);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.06);
+                } else if (type === 'correct') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(659, audioCtx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(180, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.2);
+                }
+            } catch (e) {}
+        }
+
+        function speakText(text) {
+            if (!speechEnabled) return;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9;
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function toggleAudio() {
+            speechEnabled = !speechEnabled;
+            const icon = document.getElementById('audio-icon');
+            icon.className = speechEnabled ? "fa-solid fa-volume-high" : "fa-solid fa-volume-xmark text-rose-500";
+        }
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                icon.className = "fa-solid fa-moon";
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                icon.className = "fa-solid fa-sun text-amber-400";
+            }
+        }
+
+        window.onload = function() {
+            showSection('dashboard');
+        };
+    </script>
+</body>
+</html>
